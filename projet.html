@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic gratuit — Lilacom Agence de Communication Pays Basque</title>
+  <meta name="description" content="30 minutes pour clarifier votre stratégie de communication. Diagnostic offert, sans engagement. Agence de com Bidart, Bayonne, Biarritz.">
+  <link rel="canonical" href="https://www.lilacom.com/projet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%238956C8'/><path d='M12 10 L12 30 L28 30 L28 26 L16 26 L16 10 Z' fill='white' opacity='0.95'/><circle cx='28' cy='14' r='3' fill='%23AB7DE3'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8956C8;
+  --purple-light: #AB7DE3;
+  --purple-pale: #EDE4F8;
+  --purple-xpale: #F8F4FD;
+  --purple-deep: #5A2D99;
+  --purple-dark: #3D1D6E;
+  --dark: #0E091C;
+  --dark-mid: #1E1535;
+  --cream: #FDFAFF;
+  --gold: #C9A347;
+  --muted: #8C7AAE;
+  --muted-light: #B8AACC;
+  --border: #DDD4EE;
+  --white: #FFFFFF;
+  --success: #4CAF7D;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --ease: cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:var(--cream);color:var(--dark);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{cursor:pointer;font-family:var(--font-body);border:none;background:none}
+
+/* ── TOP NAV ── */
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,250,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;font-family:var(--font-display);font-size:24px;font-weight:500;letter-spacing:-.02em;line-height:1}
+.nav-logo .lila{color:var(--purple)}
+.nav-logo .com{color:var(--dark)}
+.back-link{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);transition:color .3s}
+.back-link:hover{color:var(--purple)}
+.back-link svg{transition:transform .3s}
+.back-link:hover svg{transform:translateX(-3px)}
+
+/* ── LAYOUT ── */
+.page-wrapper{min-height:100vh;display:grid;grid-template-columns:380px 1fr;padding-top:73px}
+
+/* ── SIDEBAR ── */
+.sidebar{background:var(--dark);position:sticky;top:73px;height:calc(100vh - 73px);overflow-y:auto;padding:60px 48px;display:flex;flex-direction:column}
+.sidebar-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(137,86,200,.2);border:1px solid rgba(137,86,200,.3);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-light);margin-bottom:32px}
+.sidebar-tag-dot{width:6px;height:6px;background:var(--purple-light);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.sidebar-title{font-family:var(--font-display);font-size:clamp(28px,2.5vw,40px);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:var(--white);margin-bottom:16px}
+.sidebar-title em{font-style:italic;color:var(--purple-light)}
+.sidebar-desc{font-size:14.5px;color:rgba(255,255,255,.45);line-height:1.75;font-weight:300;margin-bottom:40px}
+
+/* Step progress */
+.steps-nav{display:flex;flex-direction:column;gap:0;flex:1}
+.step-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,.06);cursor:default}
+.step-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+.step-dot{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:.4s;margin-top:2px}
+.step-item.active .step-dot{background:var(--purple);border-color:var(--purple);color:var(--white)}
+.step-item.done .step-dot{background:rgba(76,175,125,.2);border-color:var(--success);color:var(--success)}
+.step-item.done .step-dot::after{content:'✓';font-size:12px}
+.step-item.done .step-dot span{display:none}
+.step-content{flex:1}
+.step-label{font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:3px;transition:.4s}
+.step-item.active .step-label{color:var(--purple-light)}
+.step-item.done .step-label{color:rgba(76,175,125,.7)}
+.step-name{font-size:15px;font-weight:400;color:rgba(255,255,255,.35);transition:.4s}
+.step-item.active .step-name{color:var(--white)}
+.step-item.done .step-name{color:rgba(255,255,255,.55)}
+
+/* Trust signals */
+.sidebar-trust{margin-top:auto;padding-top:32px;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:12px}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:12.5px;color:rgba(255,255,255,.35)}
+.trust-icon{font-size:14px;opacity:.6}
+
+/* ── MAIN FORM AREA ── */
+.form-area{padding:60px 64px;display:flex;flex-direction:column;min-height:calc(100vh - 73px)}
+.step-panel{display:none;flex:1;flex-direction:column;animation:stepIn .4s var(--ease-out)}
+.step-panel.active{display:flex}
+@keyframes stepIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+
+.step-header{margin-bottom:48px}
+.step-number{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.step-title{font-family:var(--font-display);font-size:clamp(30px,3vw,48px);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--dark);margin-bottom:12px}
+.step-title em{font-style:italic;color:var(--purple)}
+.step-subtitle{font-size:15px;color:#5A5070;font-weight:300;line-height:1.7;max-width:520px}
+
+/* Card selectors */
+.card-grid{display:grid;gap:12px;margin-bottom:36px}
+.card-grid-2{grid-template-columns:repeat(2,1fr)}
+.card-grid-3{grid-template-columns:repeat(3,1fr)}
+.card-option{padding:20px 22px;border:1.5px solid var(--border);border-radius:14px;cursor:pointer;transition:border-color .3s,background .3s,transform .2s;position:relative;background:var(--white);text-align:left}
+.card-option:hover{border-color:var(--purple-light);background:var(--purple-xpale);transform:translateY(-1px)}
+.card-option.selected{border-color:var(--purple);background:var(--purple-xpale)}
+.card-option.selected::after{content:'✓';position:absolute;top:14px;right:16px;width:20px;height:20px;background:var(--purple);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:white;display:grid;place-items:center}
+.card-option-icon{font-size:24px;margin-bottom:10px}
+.card-option-label{font-size:14.5px;font-weight:500;color:var(--dark)}
+.card-option-desc{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+/* Multi-select hint */
+.multi-hint{font-size:11.5px;color:var(--muted);margin-bottom:16px;font-style:italic}
+
+/* Budget range */
+.budget-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:36px}
+.budget-card{padding:20px 16px;border:1.5px solid var(--border);border-radius:14px;cursor:pointer;transition:border-color .3s,background .3s;background:var(--white);text-align:center}
+.budget-card:hover{border-color:var(--purple-light);background:var(--purple-xpale)}
+.budget-card.selected{border-color:var(--purple);background:var(--purple-xpale)}
+.budget-amount{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--dark);line-height:1}
+.budget-label{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.04em}
+
+/* Regular form fields */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.form-input,.form-select,.form-textarea{padding:13px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:var(--font-body);font-size:15px;color:var(--dark);background:var(--white);transition:border-color .3s,box-shadow .3s;outline:none;width:100%}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(137,86,200,.1)}
+.form-textarea{resize:vertical;min-height:100px;line-height:1.6}
+.form-input::placeholder{color:var(--muted-light)}
+
+/* Contact mode */
+.contact-mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:32px}
+.mode-card{padding:18px 16px;border:1.5px solid var(--border);border-radius:14px;cursor:pointer;transition:border-color .3s,background .3s;background:var(--white);text-align:center}
+.mode-card:hover{border-color:var(--purple-light);background:var(--purple-xpale)}
+.mode-card.selected{border-color:var(--purple);background:var(--purple-xpale)}
+.mode-icon{font-size:22px;margin-bottom:8px}
+.mode-label{font-size:13.5px;font-weight:500;color:var(--dark)}
+.mode-desc{font-size:11.5px;color:var(--muted);margin-top:3px}
+
+/* Calendar / slots */
+.calendar-container{background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:32px}
+.calendar-header{padding:20px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cal-month{font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--dark);letter-spacing:-.01em}
+.cal-nav{display:flex;gap:8px}
+.cal-nav-btn{width:34px;height:34px;border:1.5px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .3s,color .3s,background .3s;font-size:16px;cursor:pointer}
+.cal-nav-btn:hover{border-color:var(--purple);color:var(--purple);background:var(--purple-xpale)}
+.days-grid{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--border)}
+.day-col{border-right:1px solid var(--border);flex:1}
+.day-col:last-child{border-right:none}
+.day-header{padding:14px 10px;text-align:center;border-bottom:1px solid var(--border);background:var(--cream)}
+.day-name{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.day-num{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--dark);margin-top:2px;line-height:1}
+.day-num.today{color:var(--purple);font-weight:500}
+.slots-list{padding:12px 10px;display:flex;flex-direction:column;gap:6px;min-height:160px}
+.slot-btn{padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12.5px;font-weight:500;color:var(--dark);background:var(--white);cursor:pointer;transition:border-color .3s,background .3s,color .3s;text-align:center;width:100%}
+.slot-btn:hover{border-color:var(--purple-light);background:var(--purple-xpale);color:var(--purple)}
+.slot-btn.selected{border-color:var(--purple);background:var(--purple);color:var(--white)}
+.slot-btn:disabled{opacity:.25;cursor:not-allowed;pointer-events:none}
+.no-slots{text-align:center;padding-top:20px;font-size:12px;color:var(--muted);font-style:italic}
+
+.selected-slot-display{display:none;align-items:center;gap:12px;padding:16px 20px;background:var(--purple-pale);border:1.5px solid var(--purple-light);border-radius:12px;margin-top:16px}
+.selected-slot-display.visible{display:flex}
+.selected-slot-display svg{color:var(--purple);flex-shrink:0}
+.selected-slot-text{font-size:14px;font-weight:500;color:var(--purple-deep)}
+
+/* Form bottom navigation */
+.form-footer{margin-top:auto;padding-top:40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.btn-back{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:400;color:var(--muted);transition:color .3s}
+.btn-back:hover{color:var(--purple)}
+.btn-next{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:15px 32px;background:var(--purple);color:var(--white);border-radius:100px;transition:background .3s,transform .3s,box-shadow .3s}
+.btn-next:hover{background:var(--purple-deep);transform:translateY(-1px);box-shadow:0 10px 28px rgba(89,45,153,.4)}
+.btn-next:disabled{opacity:.4;pointer-events:none;transform:none;box-shadow:none}
+.btn-submit{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:15px 32px;background:var(--purple);color:var(--white);border-radius:100px;transition:background .3s,transform .3s,box-shadow .3s}
+.btn-submit:hover{background:var(--purple-deep);transform:translateY(-1px);box-shadow:0 10px 28px rgba(89,45,153,.4)}
+
+/* ── CONFIRMATION ── */
+.confirmation{display:none;flex-direction:column;align-items:center;justify-content:center;flex:1;text-align:center;padding:40px}
+.confirmation.visible{display:flex}
+.confirm-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--purple-pale),var(--purple));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:confirmPop .6s var(--ease-out)}
+@keyframes confirmPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.confirm-icon svg{color:white;width:36px;height:36px}
+.confirm-title{font-family:var(--font-display);font-size:clamp(28px,3vw,44px);font-weight:300;color:var(--dark);margin-bottom:16px;letter-spacing:-.02em;line-height:1.1}
+.confirm-title em{font-style:italic;color:var(--purple)}
+.confirm-text{font-size:16px;color:#5A5070;max-width:480px;line-height:1.75;font-weight:300;margin-bottom:40px}
+.confirm-details{display:flex;flex-direction:column;gap:12px;background:var(--purple-xpale);border:1.5px solid var(--purple-pale);border-radius:16px;padding:28px;max-width:400px;width:100%;margin-bottom:40px;text-align:left}
+.confirm-detail{display:flex;align-items:center;gap:12px;font-size:14px}
+.confirm-detail-icon{width:32px;height:32px;background:var(--purple-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.confirm-detail strong{color:var(--dark);font-weight:500}
+.confirm-detail span{color:var(--muted)}
+.confirm-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--purple);border:1.5px solid var(--purple-pale);padding:13px 24px;border-radius:100px;transition:background .3s}
+.confirm-back:hover{background:var(--purple-xpale)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .page-wrapper{grid-template-columns:300px 1fr}
+  .sidebar{padding:48px 32px}
+  .form-area{padding:48px 40px}
+}
+@media(max-width:768px){
+  .page-wrapper{grid-template-columns:1fr}
+  .top-nav{padding:16px 24px}
+  .sidebar{position:static;height:auto;padding:32px 24px}
+  .steps-nav{flex-direction:row;gap:8px;overflow-x:auto;padding-bottom:4px}
+  .step-item{flex-direction:column;align-items:center;text-align:center;min-width:90px;border:none;padding:12px 8px}
+  .step-content{align-items:center;display:flex;flex-direction:column}
+  .sidebar-trust,.sidebar-desc,.sidebar-tag,.sidebar-title{display:none}
+  .form-area{padding:32px 24px}
+  .card-grid-3,.card-grid-2{grid-template-columns:1fr 1fr}
+  .budget-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .days-grid{grid-template-columns:repeat(3,1fr)}
+  .days-grid .day-col:nth-child(4),.days-grid .day-col:nth-child(5){display:none}
+  .contact-mode-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<header class="top-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" width="28" height="28" style="margin-right:10px">
+      <rect width="40" height="40" rx="10" fill="#8956C8"/>
+      <path d="M12 10 L12 30 L28 30 L28 26 L16 26 L16 10 Z" fill="white" opacity="0.95"/>
+      <circle cx="28" cy="14" r="3" fill="#AB7DE3"/>
+    </svg>
+    <span class="lila">Lila</span><span class="com">com</span>
+  </a>
+  <a href="index.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    Retour au site
+  </a>
+</header>
+
+<div class="page-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-tag">
+      <span class="sidebar-tag-dot"></span>
+      Diagnostic offert
+    </div>
+    <h1 class="sidebar-title">30 min pour <em>tout clarifier.</em></h1>
+    <p class="sidebar-desc">Pas un appel de vente. Un vrai échange stratégique : on analyse votre situation, on identifie vos priorités, on vous donne des pistes concrètes — sans engagement.</p>
+
+    <nav class="steps-nav" aria-label="Étapes du formulaire">
+      <div class="step-item active" id="step-nav-1">
+        <div class="step-dot"><span>1</span></div>
+        <div class="step-content">
+          <div class="step-label">Étape 1</div>
+          <div class="step-name">Votre entreprise</div>
+        </div>
+      </div>
+      <div class="step-item" id="step-nav-2">
+        <div class="step-dot"><span>2</span></div>
+        <div class="step-content">
+          <div class="step-label">Étape 2</div>
+          <div class="step-name">Votre projet</div>
+        </div>
+      </div>
+      <div class="step-item" id="step-nav-3">
+        <div class="step-dot"><span>3</span></div>
+        <div class="step-content">
+          <div class="step-label">Étape 3</div>
+          <div class="step-name">Votre rendez-vous</div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar-trust">
+      <div class="trust-item"><span class="trust-icon">🔒</span> Vos données restent confidentielles</div>
+      <div class="trust-item"><span class="trust-icon">⏱</span> 5 min pour compléter ce formulaire</div>
+      <div class="trust-item"><span class="trust-icon">✅</span> Aucun engagement, annulable à tout moment</div>
+      <div class="trust-item"><span class="trust-icon">📍</span> Basés à Bidart — disponibles sur tout le territoire</div>
+    </div>
+  </aside>
+
+  <!-- MAIN FORM -->
+  <main class="form-area">
+
+    <!-- ═══ STEP 1: Votre entreprise ═══ -->
+    <div class="step-panel active" id="panel-1">
+      <div class="step-header">
+        <div class="step-number">Étape 01 / 03</div>
+        <h2 class="step-title">Votre <em>entreprise.</em></h2>
+        <p class="step-subtitle">Pour vous proposer les bonnes recommandations, nous avons besoin de comprendre votre contexte et votre marché.</p>
+      </div>
+
+      <div>
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Votre secteur d'activité</p>
+        <div class="card-grid card-grid-3" id="sector-grid">
+          <div class="card-option" data-value="gastronomie" onclick="selectCard(this,'sector-grid')">
+            <div class="card-option-icon">🍽️</div>
+            <div class="card-option-label">Gastronomie &amp; Hôtellerie</div>
+            <div class="card-option-desc">Restaurant, hôtel, villa, chambre d'hôtes</div>
+          </div>
+          <div class="card-option" data-value="surf-lifestyle" onclick="selectCard(this,'sector-grid')">
+            <div class="card-option-icon">🏄</div>
+            <div class="card-option-label">Surf &amp; Lifestyle</div>
+            <div class="card-option-desc">Sport, loisirs, marques outdoor</div>
+          </div>
+          <div class="card-option" data-value="commerce" onclick="selectCard(this,'sector-grid')">
+            <div class="card-option-icon">🛍️</div>
+            <div class="card-option-label">Commerce &amp; Artisanat</div>
+            <div class="card-option-desc">Boutique, artisan, créateur, galerie</div>
+          </div>
+          <div class="card-option" data-value="pme" onclick="selectCard(this,'sector-grid')">
+            <div class="card-option-icon">💼</div>
+            <div class="card-option-label">PME &amp; Services B2B</div>
+            <div class="card-option-desc">Entreprise, cabinet, agence, prestataire</div>
+          </div>
+          <div class="card-option" data-value="sante" onclick="selectCard(this,'sector-grid')">
+            <div class="card-option-icon">💆</div>
+            <div class="card-option-label">Santé &amp; Bien-être</div>
+            <div class="card-option-desc">Thérapeute, spa, coach, praticien</div>
+          </div>
+          <div class="card-option" data-value="autre" onclick="selectCard(this,'sector-grid')">
+            <div class="card-option-icon">✦</div>
+            <div class="card-option-label">Autre secteur</div>
+            <div class="card-option-desc">On s'adapte à toutes les activités</div>
+          </div>
+        </div>
+
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Taille de votre structure</p>
+        <div class="card-grid card-grid-3" id="size-grid" style="margin-bottom:36px">
+          <div class="card-option" data-value="solo" onclick="selectCard(this,'size-grid')">
+            <div class="card-option-label">Solo / Indépendant</div>
+            <div class="card-option-desc">1 personne</div>
+          </div>
+          <div class="card-option" data-value="tpe" onclick="selectCard(this,'size-grid')">
+            <div class="card-option-label">TPE</div>
+            <div class="card-option-desc">2 à 9 personnes</div>
+          </div>
+          <div class="card-option" data-value="pme-size" onclick="selectCard(this,'size-grid')">
+            <div class="card-option-label">PME</div>
+            <div class="card-option-desc">10 à 250 personnes</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="company-name">Nom de l'entreprise</label>
+            <input class="form-input" type="text" id="company-name" placeholder="Ma société" autocomplete="organization">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="role">Votre poste</label>
+            <input class="form-input" type="text" id="role" placeholder="Dirigeant, Responsable Marketing…" autocomplete="organization-title">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <span></span>
+        <button class="btn-next" onclick="goToStep(2)">
+          Étape suivante
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 2: Votre projet ═══ -->
+    <div class="step-panel" id="panel-2">
+      <div class="step-header">
+        <div class="step-number">Étape 02 / 03</div>
+        <h2 class="step-title">Votre <em>projet.</em></h2>
+        <p class="step-subtitle">Dites-nous ce dont vous avez besoin. Plusieurs besoins ? Sélectionnez-les tous — on aime les projets complets.</p>
+      </div>
+
+      <div>
+        <p class="multi-hint">Sélection multiple possible</p>
+        <div class="card-grid card-grid-3" id="services-grid" style="margin-bottom:36px">
+          <div class="card-option multi" data-value="identite" onclick="toggleCard(this)">
+            <div class="card-option-icon">✏️</div>
+            <div class="card-option-label">Identité visuelle</div>
+            <div class="card-option-desc">Logo, charte, packaging</div>
+          </div>
+          <div class="card-option multi" data-value="web" onclick="toggleCard(this)">
+            <div class="card-option-icon">🖥️</div>
+            <div class="card-option-label">Site web</div>
+            <div class="card-option-desc">Vitrine, e-commerce, réservation</div>
+          </div>
+          <div class="card-option multi" data-value="reseaux" onclick="toggleCard(this)">
+            <div class="card-option-icon">📱</div>
+            <div class="card-option-label">Réseaux sociaux</div>
+            <div class="card-option-desc">Stratégie, contenu, community</div>
+          </div>
+          <div class="card-option multi" data-value="audiovisuel" onclick="toggleCard(this)">
+            <div class="card-option-icon">🎬</div>
+            <div class="card-option-label">Photo &amp; Vidéo</div>
+            <div class="card-option-desc">Shooting, film de marque</div>
+          </div>
+          <div class="card-option multi" data-value="influence" onclick="toggleCard(this)">
+            <div class="card-option-icon">⭐</div>
+            <div class="card-option-label">Influence</div>
+            <div class="card-option-desc">Créateurs locaux, campagnes</div>
+          </div>
+          <div class="card-option multi" data-value="strategie" onclick="toggleCard(this)">
+            <div class="card-option-icon">🧭</div>
+            <div class="card-option-label">Stratégie globale</div>
+            <div class="card-option-desc">Audit, positionnement, plan com</div>
+          </div>
+        </div>
+
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Budget envisagé</p>
+        <div class="budget-grid" id="budget-grid">
+          <div class="budget-card" data-value="under-1k" onclick="selectCard(this,'budget-grid')">
+            <div class="budget-amount">– 1 k€</div>
+            <div class="budget-label">Démarrage</div>
+          </div>
+          <div class="budget-card" data-value="1-5k" onclick="selectCard(this,'budget-grid')">
+            <div class="budget-amount">1–5 k€</div>
+            <div class="budget-label">Projet ciblé</div>
+          </div>
+          <div class="budget-card" data-value="5-15k" onclick="selectCard(this,'budget-grid')">
+            <div class="budget-amount">5–15 k€</div>
+            <div class="budget-label">Projet complet</div>
+          </div>
+          <div class="budget-card" data-value="15k+" onclick="selectCard(this,'budget-grid')">
+            <div class="budget-amount">15 k€+</div>
+            <div class="budget-label">Partenariat annuel</div>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-top:8px">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="timeline">Délai souhaité</label>
+            <select class="form-select" id="timeline">
+              <option value="">Choisir…</option>
+              <option>Urgent — moins d'1 mois</option>
+              <option>1 à 3 mois</option>
+              <option>3 à 6 mois</option>
+              <option>+ de 6 mois</option>
+              <option>Pas de contrainte de délai</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="situation">Situation actuelle</label>
+            <select class="form-select" id="situation">
+              <option value="">Choisir…</option>
+              <option>Nouveau projet / lancement</option>
+              <option>Refonte / repositionnement</option>
+              <option>Développement existant</option>
+              <option>Remplacement prestataire actuel</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:20px">
+          <label class="form-label" for="description">Décrivez votre projet en quelques mots <span style="text-transform:none;letter-spacing:0;font-weight:300;color:var(--muted-light)">(optionnel)</span></label>
+          <textarea class="form-textarea" id="description" placeholder="Contexte, objectifs, contraintes particulières, questions spécifiques…" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <button class="btn-back" onclick="goToStep(1)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          Précédent
+        </button>
+        <button class="btn-next" onclick="goToStep(3)">
+          Choisir mon créneau
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 3: Rendez-vous ═══ -->
+    <div class="step-panel" id="panel-3">
+      <div class="step-header">
+        <div class="step-number">Étape 03 / 03</div>
+        <h2 class="step-title">Votre <em>rendez-vous.</em></h2>
+        <p class="step-subtitle">Choisissez le format et le créneau qui vous convient. Le diagnostic dure 30 minutes, sans engagement.</p>
+      </div>
+
+      <div>
+        <!-- Format de contact -->
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Format de l'échange</p>
+        <div class="contact-mode-grid" id="mode-grid">
+          <div class="mode-card selected" data-value="visio" onclick="selectCard(this,'mode-grid')">
+            <div class="mode-icon">💻</div>
+            <div class="mode-label">Visioconférence</div>
+            <div class="mode-desc">Google Meet / Teams</div>
+          </div>
+          <div class="mode-card" data-value="tel" onclick="selectCard(this,'mode-grid')">
+            <div class="mode-icon">📞</div>
+            <div class="mode-label">Appel téléphonique</div>
+            <div class="mode-desc">Simple et rapide</div>
+          </div>
+          <div class="mode-card" data-value="agence" onclick="selectCard(this,'mode-grid')">
+            <div class="mode-icon">📍</div>
+            <div class="mode-label">En agence</div>
+            <div class="mode-desc">À Bidart, Pays Basque</div>
+          </div>
+        </div>
+
+        <!-- Calendar -->
+        <p style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Choisissez un créneau</p>
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <span class="cal-month" id="cal-title">Semaine du 31 mars au 4 avril</span>
+            <div class="cal-nav">
+              <button class="cal-nav-btn" onclick="prevWeek()" title="Semaine précédente">‹</button>
+              <button class="cal-nav-btn" onclick="nextWeek()" title="Semaine suivante">›</button>
+            </div>
+          </div>
+          <div class="days-grid" id="days-grid">
+            <!-- Generated by JS -->
+          </div>
+        </div>
+
+        <div class="selected-slot-display" id="selectedSlotDisplay">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="selected-slot-text" id="selectedSlotText"></span>
+        </div>
+
+        <!-- Contact info -->
+        <div style="margin-top:28px">
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="firstname">Prénom</label>
+              <input class="form-input" type="text" id="firstname" placeholder="Marie" autocomplete="given-name">
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="lastname">Nom</label>
+              <input class="form-input" type="text" id="lastname" placeholder="Dupont" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="email-pro">Email professionnel</label>
+              <input class="form-input" type="email" id="email-pro" placeholder="marie@masociete.fr" autocomplete="email">
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="phone">Téléphone</label>
+              <input class="form-input" type="tel" id="phone" placeholder="06 12 34 56 78" autocomplete="tel">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <button class="btn-back" onclick="goToStep(2)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          Précédent
+        </button>
+        <button class="btn-submit" onclick="submitForm()">
+          Confirmer mon rendez-vous
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ CONFIRMATION ═══ -->
+    <div class="confirmation" id="confirmation">
+      <div class="confirm-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2 class="confirm-title">Votre diagnostic est <em>confirmé.</em></h2>
+      <p class="confirm-text">Un email de confirmation vous a été envoyé. L'un de nos experts vous contactera au créneau choisi. D'ici là, n'hésitez pas à nous appeler directement.</p>
+      <div class="confirm-details" id="confirm-details">
+        <!-- Populated by JS -->
+      </div>
+      <a href="index.html" class="confirm-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Retour au site Lilacom
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function(){
+
+  // ── STATE ─────────────────────────────────────────────
+  const state = {
+    step: 1,
+    sector: null,
+    size: null,
+    services: [],
+    budget: null,
+    mode: 'visio',
+    slot: null,
+    weekOffset: 0
+  };
+
+  // ── CARD SELECTION (single) ────────────────────────────
+  window.selectCard = function(el, gridId) {
+    document.querySelectorAll('#' + gridId + ' .card-option, #' + gridId + ' .budget-card, #' + gridId + ' .mode-card')
+      .forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    const k = gridId === 'sector-grid' ? 'sector'
+            : gridId === 'size-grid' ? 'size'
+            : gridId === 'budget-grid' ? 'budget'
+            : gridId === 'mode-grid' ? 'mode' : null;
+    if(k) state[k] = el.dataset.value;
+  };
+
+  // ── CARD TOGGLE (multi-select) ─────────────────────────
+  window.toggleCard = function(el) {
+    el.classList.toggle('selected');
+    const v = el.dataset.value;
+    const idx = state.services.indexOf(v);
+    if(idx > -1) state.services.splice(idx, 1);
+    else state.services.push(v);
+  };
+
+  // ── STEP NAVIGATION ────────────────────────────────────
+  window.goToStep = function(n) {
+    // Hide current
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    // Update sidebar nav
+    for(let i = 1; i <= 3; i++) {
+      const nav = document.getElementById('step-nav-' + i);
+      nav.classList.remove('active','done');
+      if(i < n) nav.classList.add('done');
+      else if(i === n) nav.classList.add('active');
+    }
+    // Show new panel
+    document.getElementById('panel-' + n).classList.add('active');
+    state.step = n;
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  // ── CALENDAR ───────────────────────────────────────────
+  const slots = {
+    // Mon
+    0: ['09h30','11h00','14h30'],
+    // Tue
+    1: ['10h00','15h00'],
+    // Wed
+    2: ['09h30','11h30','14h00','16h00'],
+    // Thu
+    3: ['10h30','14h00'],
+    // Fri
+    4: ['09h30','11h00','14h30']
+  };
+  const unavailable = { 0: ['09h30'], 2: ['16h00'] }; // some slots taken
+
+  const dayNames = ['Lun','Mar','Mer','Jeu','Ven'];
+  const months = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+
+  function getMonday(offset) {
+    const d = new Date();
+    const day = d.getDay();
+    const diff = d.getDate() - day + (day === 0 ? -6 : 1) + (offset * 7);
+    d.setDate(diff);
+    d.setHours(0,0,0,0);
+    return d;
+  }
+
+  function formatWeekRange(monday) {
+    const friday = new Date(monday); friday.setDate(monday.getDate() + 4);
+    const mDay = monday.getDate(), mMonth = months[monday.getMonth()];
+    const fDay = friday.getDate(), fMonth = months[friday.getMonth()];
+    if(mMonth === fMonth) return `Semaine du ${mDay} au ${fDay} ${fMonth} ${friday.getFullYear()}`;
+    return `Semaine du ${mDay} ${mMonth} au ${fDay} ${fMonth} ${friday.getFullYear()}`;
+  }
+
+  function renderCalendar() {
+    const monday = getMonday(state.weekOffset);
+    document.getElementById('cal-title').textContent = formatWeekRange(monday);
+    const grid = document.getElementById('days-grid');
+    grid.innerHTML = '';
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    for(let i = 0; i < 5; i++) {
+      const day = new Date(monday); day.setDate(monday.getDate() + i);
+      const isPast = day < today;
+      const col = document.createElement('div');
+      col.className = 'day-col';
+      const isToday = day.getTime() === today.getTime();
+      col.innerHTML = `<div class="day-header">
+        <div class="day-name">${dayNames[i]}</div>
+        <div class="day-num${isToday?' today':''}">${day.getDate()}</div>
+      </div>`;
+      const slotsList = document.createElement('div');
+      slotsList.className = 'slots-list';
+      if(isPast) {
+        slotsList.innerHTML = '<div class="no-slots">—</div>';
+      } else {
+        const daySlots = slots[i] || [];
+        const taken = (unavailable[i] || []);
+        if(daySlots.length === 0) {
+          slotsList.innerHTML = '<div class="no-slots">Complet</div>';
+        } else {
+          daySlots.forEach(s => {
+            const btn = document.createElement('button');
+            btn.className = 'slot-btn';
+            btn.textContent = s;
+            if(taken.includes(s)) { btn.disabled = true; }
+            const dateStr = `${dayNames[i]} ${day.getDate()} ${months[day.getMonth()]} à ${s}`;
+            if(state.slot === dateStr) btn.classList.add('selected');
+            btn.onclick = () => selectSlot(btn, dateStr);
+            slotsList.appendChild(btn);
+          });
+        }
+      }
+      col.appendChild(slotsList);
+      grid.appendChild(col);
+    }
+  }
+
+  function selectSlot(btn, dateStr) {
+    document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    state.slot = dateStr;
+    const display = document.getElementById('selectedSlotDisplay');
+    document.getElementById('selectedSlotText').textContent = 'Créneau sélectionné : ' + dateStr;
+    display.classList.add('visible');
+  }
+
+  window.prevWeek = function() {
+    if(state.weekOffset > 0) { state.weekOffset--; renderCalendar(); }
+  };
+  window.nextWeek = function() {
+    if(state.weekOffset < 4) { state.weekOffset++; renderCalendar(); }
+  };
+
+  // ── SUBMIT ─────────────────────────────────────────────
+  window.submitForm = function() {
+    const firstname = document.getElementById('firstname').value.trim();
+    const email = document.getElementById('email-pro').value.trim();
+    if(!firstname || !email) {
+      document.getElementById('firstname').focus();
+      return;
+    }
+    // Show confirmation
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.step-item').forEach(n => { n.classList.remove('active'); n.classList.add('done'); });
+    const conf = document.getElementById('confirmation');
+    conf.classList.add('visible');
+
+    const modeLabel = {'visio':'Visioconférence','tel':'Appel téléphonique','agence':'En agence à Bidart'}[state.mode] || state.mode;
+    const slotText = state.slot || 'À définir par email';
+    const serviceLabels = {identite:'Identité visuelle',web:'Site web',reseaux:'Réseaux sociaux',audiovisuel:'Photo & Vidéo',influence:'Influence',strategie:'Stratégie'};
+    const servicesText = state.services.map(s => serviceLabels[s]).join(', ') || 'Non précisé';
+
+    document.getElementById('confirm-details').innerHTML = `
+      <div class="confirm-detail"><span class="confirm-detail-icon">📅</span><div><span>Créneau</span><br><strong>${slotText}</strong></div></div>
+      <div class="confirm-detail"><span class="confirm-detail-icon">💻</span><div><span>Format</span><br><strong>${modeLabel}</strong></div></div>
+      <div class="confirm-detail"><span class="confirm-detail-icon">📋</span><div><span>Besoins identifiés</span><br><strong>${servicesText}</strong></div></div>
+      <div class="confirm-detail"><span class="confirm-detail-icon">📧</span><div><span>Confirmation envoyée à</span><br><strong>${email}</strong></div></div>
+    `;
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  // ── INIT ───────────────────────────────────────────────
+  // Pre-select visio mode
+  document.querySelector('[data-value="visio"]').classList.add('selected');
+  renderCalendar();
+
+})();
+</script>
+</body>
+</html>
